@@ -14,7 +14,8 @@ env:
   CROSS_DEBIAN_VER: buster
 
 jobs:
-  Linux-x64:
+  Linux-64:
+    name: Build Linux
     runs-on: ubuntu-latest
 
     steps:
@@ -37,6 +38,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
   Raspbian-armhf:
+    name: Build Raspberry
     runs-on: ubuntu-latest
 
     steps:
@@ -73,7 +75,9 @@ jobs:
     - name: Build
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
-   runs-on: macos-latest
+  Macos:
+    name: Build macos
+    runs-on: macos-latest
 
     steps:
     - uses: actions/checkout@v3
@@ -106,6 +110,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
   Windows-x64:
+    name: Build Windows 64-bit
     runs-on: windows-latest
 
     defaults:
@@ -140,6 +145,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
   Windows-x32:
+    name: Build Windows 32-bit
     runs-on: windows-latest
 
     defaults:
@@ -174,6 +180,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
   WindowsXP-x64:
+    name: Build WindowsXP 64-bit
     runs-on: windows-latest
 
     defaults:
@@ -208,6 +215,7 @@ jobs:
       run: cmake --build ${{github.workspace}}/build --config ${{env.BUILD_TYPE}}
 
   WindowsXP-x32:
+    name: Build WindowsXP 32-bit
     runs-on: windows-latest
 
     defaults:
