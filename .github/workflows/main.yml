@@ -13,6 +13,7 @@ jobs:
   test:
     # Run a job for each of the specified target architectures:
     strategy:
+      runs-on: windows-latest
       matrix:
         arch:
           - x64
