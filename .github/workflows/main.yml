@@ -11,15 +11,15 @@ env:
 
 jobs:
   test:
-    runs-on: windows-latest
+    # Run a job for each of the specified target architectures:
     strategy:
       matrix:
         arch:
-          - win64
-          - win32
+          - x64
+          - x86
     steps:
-    - uses: actions/checkout@v3
-    - uses: ilammy/msvc-dev-cmd@v1
+      - uses: actions/checkout@v2
+      - uses: ilammy/msvc-dev-cmd@v1
         with:
           arch: ${{ matrix.arch }}
           sdk: 7
